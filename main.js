@@ -24,6 +24,8 @@ function getComputerChoice() {
 function getHumanChoice() {
     let humanChoice = prompt("Rock, Paper or SCISSORS???");
 
+    humanChoice = humanChoice.toLowerCase();
+
     switch (humanChoice) {
         case "rock":
             return humanChoice;
@@ -32,5 +34,9 @@ function getHumanChoice() {
         case "scissors":
             return humanChoice;
     }
+}
+
+function playRound(humanChoice,computerChoice) {
+    
 }
 
