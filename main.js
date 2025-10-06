@@ -36,68 +36,35 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
 
-    let gameMsg = "test";
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
+    let gameMsg = "You chose: " + humanChoice + "\n" + "Computer chose: " + computerChoice + " "
+        + "\n" + "\n" + "Current score:" + "\n" + "- Computer: " + computerScore + "\n" + "- You:" + " "+ humanScore + "\n" + "\n"
 
-    if (humanChoice === computerChoice) {
-        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "Tie!"
-            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
-        console.log(gameMsg);
+    switch (`${humanChoice}-${computerChoice}`) {
 
+        case "rock-rock":
+        case "paper-paper":
+        case "scissors-scissors":
+            gameMsg += "It's a tie!";
+            console.log(gameMsg);
+            break;
 
-    }
+        case "rock-paper":
+        case "paper-scissors":
+        case "scissors-rock":
+            computerScore++;
+            gameMsg += "You Lose!";
+            console.log(gameMsg);
+            break;
 
-    else if (humanChoice === "rock" && computerChoice === "paper") {
-        computerScore++;
-        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You lose!"
-            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
-        console.log(gameMsg);
-
-    }
-
-
-    else if (humanChoice === "rock" && computerChoice === "scissors") {
-        humanScore++;
-        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You win!"
-            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
-        console.log(gameMsg);
-
-    }
-
-
-    else if (humanChoice === "paper" && computerChoice === "rock") {
-        humanScore++;
-        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You win!"
-            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
-        console.log(gameMsg);
-
-    }
-
-    else if (humanChoice === "paper" && computerChoice === "scissors") {
-        computerScore++;
-      gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You lose!"
-            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
-        console.log(gameMsg);
-
-    }
-
-    else if (humanChoice === "scissors" && computerChoice === "paper") {
-        humanScore++;
-        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You win!"
-            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
-        console.log(gameMsg);
-
-    }
-
-
-    else if (humanChoice === "scissors" && computerChoice === "rock") {
-        computerScore++;
-      gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You lose!"
-            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
-        console.log(gameMsg);
+        case "rock-scissors":
+        case "scissors-paper":
+        case "paper-rock":
+            humanScore++;
+            gameMsg += "You Win!";
+            console.log(gameMsg);
+            break;
     }
 }
 
