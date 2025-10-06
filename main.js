@@ -36,7 +36,70 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice,computerChoice) {
-    
+function playRound(humanChoice, computerChoice) {
+
+    let gameMsg = "test";
+    humanChoice = getHumanChoice();
+    computerChoice = getComputerChoice();
+
+    if (humanChoice === computerChoice) {
+        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "Tie!"
+            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
+        console.log(gameMsg);
+
+
+    }
+
+    else if (humanChoice === "rock" && computerChoice === "paper") {
+        computerScore++;
+        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You lose!"
+            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
+        console.log(gameMsg);
+
+    }
+
+
+    else if (humanChoice === "rock" && computerChoice === "scissors") {
+        humanScore++;
+        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You win!"
+            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
+        console.log(gameMsg);
+
+    }
+
+
+    else if (humanChoice === "paper" && computerChoice === "rock") {
+        humanScore++;
+        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You win!"
+            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
+        console.log(gameMsg);
+
+    }
+
+    else if (humanChoice === "paper" && computerChoice === "scissors") {
+        computerScore++;
+      gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You lose!"
+            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
+        console.log(gameMsg);
+
+    }
+
+    else if (humanChoice === "scissors" && computerChoice === "paper") {
+        humanScore++;
+        gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You win!"
+            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
+        console.log(gameMsg);
+
+    }
+
+
+    else if (humanChoice === "scissors" && computerChoice === "rock") {
+        computerScore++;
+      gameMsg = "You chose: " + " " + humanChoice + " " + "Computer chose: " + " " + computerChoice + " " + "You lose!"
+            + " " + "Current score:" + " " + "Computer: " + " " + computerScore + " " + "You:" +  " " + humanScore
+        console.log(gameMsg);
+    }
 }
+
+playRound();
 
