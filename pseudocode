@@ -1,0 +1,5 @@
+Create rock paper scissor options
+Assign number to each option
+Create number randomizer from 0 to 2
+Let random number from 1 to 3 pick an option
+return said option
