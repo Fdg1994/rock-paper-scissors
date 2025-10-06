@@ -1,26 +1,36 @@
+
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
 function getComputerChoice() {
-    let computerChoice = "Paper";
+    let computerChoice = "paper";
 
     switch (getRandomInt(3)) {
         case 0:
-            computerChoice = "Rock";
+            computerChoice = "rock";
             return computerChoice;
         case 1:
-            computerChoice = "Paper";
+            computerChoice = "paper";
             return computerChoice;
         case 2:
-            computerChoice = "Scissors";
+            computerChoice = "scissors";
             return computerChoice;
-
     }
 }
 
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, Paper or SCISSORS???");
+
+    switch (humanChoice) {
+        case "rock":
+            return humanChoice;
+        case "paper":
+            return humanChoice;
+        case "scissors":
+            return humanChoice;
+    }
+}
+
+console.log(getHumanChoice());
