@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+const maxScore = 5;
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -38,43 +39,55 @@ function getHumanChoice() {
 
 function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
 
-    let gameMsg = "You chose: " + humanChoice + "\n" + "Computer chose: " + computerChoice + " "
-        + "\n" + "\n" + "Current score:" + "\n" + "- Computer: " + computerScore + "\n" + "- You:" + " "+ humanScore + "\n" + "\n"
+    let roundMsg = `You chose: ${humanChoice}\nComputer chose: ${computerChoice}\n\n`;
 
     switch (`${humanChoice}-${computerChoice}`) {
-
         case "rock-rock":
         case "paper-paper":
         case "scissors-scissors":
-            gameMsg += "It's a tie!";
-            console.log(gameMsg);
+            roundMsg += "It's a tie!";
             break;
 
         case "rock-paper":
         case "paper-scissors":
         case "scissors-rock":
             computerScore++;
-            gameMsg += "You Lose!";
-            console.log(gameMsg);
+            roundMsg += "You Lose this round!";
             break;
 
         case "rock-scissors":
         case "scissors-paper":
         case "paper-rock":
             humanScore++;
-            gameMsg += "You Win!";
-            console.log(gameMsg);
+            roundMsg += "You Win this round!";
             break;
     }
+
+    roundMsg += `\n\nCurrent score:\n- You: ${humanScore}\n- Computer: ${computerScore}`;
+
+    const resultsDiv = document.getElementById("results");
+    resultsDiv.textContent = roundMsg;
+
+    console.log(roundMsg);
+
+    // Check if someone reached maxScore
+    if (humanScore >= maxScore || computerScore >= maxScore) {
+        const winner = humanScore >= maxScore ? "You won the game! " : "Computer won the game! ";
+        resultsDiv.textContent += `\n\n${winner}`;
+
+        // Reset scores for a new game
+        humanScore = 0;
+        computerScore = 0;
+    }
+
 }
 
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-  // and for each one we add a 'click' listener
-  button.addEventListener("click", () => {
-    playRound(button.id);
-  });
+    button.addEventListener("click", () => {
+        playRound(button.id);
+    });
 });
 
 
